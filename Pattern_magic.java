@@ -1,0 +1,50 @@
+package Assignment_1;
+
+import java.util.Scanner;
+
+public class Pattern_magic {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		Scanner s = new Scanner(System.in);
+		int n = s.nextInt();
+		
+		int row = 1;
+		int nst = n;
+		int nsp = -1;
+		
+		while(row<=2*n-1) {
+			// Print the left star
+			int i = 1;
+			while(i<=nst) {
+				System.out.print("*");
+				i++;
+			}
+			// Print the space
+			int j = 1;
+			while(j<=nsp) {
+				System.out.print(" ");
+				j++;
+			}
+			// Print the right star
+			int k = 1;
+			if(row==1 || row==2*n-1) {
+				k=2;
+			}
+			while(k<=nst) {
+				System.out.print("*");
+				k++;
+			}
+			// Preparation for the next row
+			if(row<n) {
+				nst--;
+				nsp+=2;
+			}else {
+				nst++;
+				nsp-=2;
+			}
+			System.out.println();
+			row=row+1;
+		}
+	}
+}
